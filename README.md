@@ -1,18 +1,18 @@
-AI Email-newsletter Summary
+# AI Email-newsletter Summary 
 This repository contains a Google Apps Script to automatically summarize emails using the OpenAI GPT-3.5-turbo model. The script retrieves emails sent to specified recipients, saves them as text files in Google Drive, and generates a summary of the emails using the GPT-3.5-turbo model. Finally, the summary is sent to designated recipients via email.
 
-Features
-    -Retrieve emails sent to specific recipients within the last 24 hours
-    -Save the retrieved emails as text files in Google Drive
-    -Generate summaries of the emails using OpenAI's GPT-3.5-turbo model
-    -Send the generated summaries to specified email recipients
-    -Support Gmail's "plus" addressing feature for creating custom email aliases
+# Features
+    Retrieve emails sent to specific recipients within the last 24 hours
+    Save the retrieved emails as text files in Google Drive
+    Generate summaries of the emails using OpenAI's GPT-3.5-turbo model
+    Send the generated summaries to specified email recipients
+    Support Gmail's "plus" addressing feature for creating custom email aliases
 
-Prerequisites
-    -A Google account with access to Google Apps Script, Google Drive, and Gmail
-    -An OpenAI API key for using the GPT-3.5-turbo model
+# Prerequisites
+    A Google account with access to Google Apps Script, Google Drive, and Gmail
+    An OpenAI API key for using the GPT-3.5-turbo model
 
-Setup
+# Setup
     1. Create a new Google Sheets document and create two sheets named "Variables" and "Recipients".
 
     2. In the "Variables" sheet, add the following information:
@@ -35,11 +35,11 @@ Setup
 
     6. Save and deploy the script by selecting "Publish" > "Deploy as API executable" in the Google Apps Script editor.
 
-Usage
+# Usage
 To automate the script to run every 24 hours, follow these steps:
 
     1. In the Google Apps Script editor, click on the clock icon to open the "Triggers" page.
-    2, Click on the "+ Add Trigger" button at the bottom right of the page.
+    2. Click on the "+ Add Trigger" button at the bottom right of the page.
     3. In the "Choose which function to run" dropdown menu, select the main function.
     4. In the "Select event source" dropdown menu, choose "Time-driven."
     5. In the "Select type of time based trigger" dropdown menu, select "Day timer."
