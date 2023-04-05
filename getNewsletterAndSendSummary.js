@@ -1,6 +1,6 @@
 // https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 var SPREADSHEET_ID = '1tkM6J8TkP8S3ihEYPFSd9pJCr9Tyj0pqpTHEhTgv8v0';
-
+var summariesSent = false;
 function getVariablesFromSheet() {
   var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Variables');
   var data = sheet.getDataRange().getValues();
@@ -44,6 +44,10 @@ function getEmailsAndSaveToTextFile() {
   var allSummaries = '';
   var recipients = getEmailRecipientsFromSheet();
   
+  if (summariesSent) {
+    return;
+  }
+
   recipients.newsletterRecipient.forEach(function (recipient) {
     var folderId = variables.folderId;
     var folder = DriveApp.getFolderById(folderId);
@@ -167,6 +171,7 @@ function getEmailsAndSaveToTextFile() {
     summaryRecipient.forEach(function (recipient) {
       GmailApp.sendEmail(recipient, subject, body);
     });
+    summariesSent = true;
   }
   function deleteFile(fileId){
     DriveApp.getFileById(fileId).setTrashed(true);
@@ -177,3 +182,4 @@ function getEmailsAndSaveToTextFile() {
   }
   
   main();
+}
