@@ -111,6 +111,15 @@ function getEmailsAndSaveToTextFile() {
     if (allSummaries) {
       sendEmail(allSummaries, recipients.summaryRecipient);
     }
+
+    recipients.newsletterRecipient.forEach(function (recipient) {
+      var folderId = variables.folderId;
+      var folder = DriveApp.getFolderById(folderId);
+      var files = folder.getFiles();
+      while (files.hasNext()) {
+        var file = files.next();
+        deleteFile(file.getId());
+      }
   }
   
   function getTokenCount(text) {
@@ -159,10 +168,12 @@ function getEmailsAndSaveToTextFile() {
       GmailApp.sendEmail(recipient, subject, body);
     });
   }
-  
+  function deleteFile(fileId){
+    DriveApp.getFileById(fileId).setTrashed(true);
+  }
+
   function main() {
     getEmailsAndSaveToTextFile();
   }
   
   main();
-  
