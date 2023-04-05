@@ -138,8 +138,8 @@ function getEmailsAndSaveToTextFile() {
     var data = {
       'model': 'gpt-3.5-turbo',
       'messages': [
-        {'role': 'system', 'content': 'Du bist ein Experte für Künstliche Inteligenz und fasst die Newsletter so zusammen, dass man am Ende genug Informationen hat.'},
-        {'role': 'user', 'content': 'Fasse diese Newsletter zusammen: ' + fileContent}
+        {'role': 'system', 'content': 'Du bist ein Experte für Ai und bekommst mehrere Newsletter bereitgestellt. '},
+        {'role': 'user', 'content': 'Fasse diese Newsletter zu einem Text zusammen, der alle wichtigen Themen enthält und in dem alle wichtigen Infos genau bereitgestellt werden: ' + fileContent}
       ],
       'temperature': 0.7
     };
